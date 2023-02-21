@@ -16,17 +16,17 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-DROP DATABASE univers;
+DROP DATABASE universe;
 --
 -- Name: univers; Type: DATABASE; Schema: -; Owner: freecodecamp
 --
 
-CREATE DATABASE univers WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C.UTF-8' LC_CTYPE = 'C.UTF-8';
+CREATE DATABASE universe WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C.UTF-8' LC_CTYPE = 'C.UTF-8';
 
 
-ALTER DATABASE univers OWNER TO freecodecamp;
+ALTER DATABASE universe OWNER TO freecodecamp;
 
-\connect univers
+\connect universe
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -313,6 +313,20 @@ SELECT pg_catalog.setval('public.planet_planet_id_seq', 1, false);
 --
 
 SELECT pg_catalog.setval('public.star_star_id_seq', 1, false);
+
+--
+-- Name: expedition expedition_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.expedition
+    ADD CONSTRAINT expedition_name_key UNIQUE (name);
+
+--
+-- Name: expedition expedition_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.expedition
+    ADD CONSTRAINT expedition_pkey PRIMARY KEY (expedition_id);
 
 
 --
